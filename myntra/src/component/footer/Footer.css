@@ -1,0 +1,117 @@
+* {
+    font-family: sans-serif;
+}
+#footer-parent-div {
+    /* border: 1px solid black; */
+    /* height: 502px; */
+    width: 100%;
+    /* margin-top: 16vh; */
+    background-color: white;
+    padding-top: 1%;
+}
+
+#inner-align-div {
+    /* border: 1px solid black; */
+    height: 500px;
+    width: 80%;
+    margin: 10%;
+    
+}
+
+#inside-of-inner-align-div {
+    /* border: 1px solid black; */
+    height: 500px;
+    width: 100%;
+    display: flex;
+    
+}
+
+#Online-Useful {
+    /* border: 1px solid black; */
+    height: 500px;
+    width: 20%;
+}
+
+#shopping, #link {
+    /* border: 1px solid black; */
+    height: 250px;
+    width: 100%;
+    line-height: 3vh;
+}
+
+.anchor {
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.anchor-grey {
+    color: grey;
+    font-size: 14px;
+}
+
+#cus-pro {
+    /* border: 1px solid black; */
+    height: 500px;
+    width: 20%;
+    line-height: 3vh;
+}
+
+#exp-mob {
+    /* border: 1px solid black; */
+    height: 500px;
+    width: 30%;
+}
+
+#play-image-div {
+    display: flex;
+}
+
+.play-img {
+    width: 120px;
+}
+
+.apple-app-img {
+    width: 110px;
+}
+
+#accredation {
+    /* border: 1px solid black; */
+    height: 500px;
+    width: 30%;
+}
+
+.fa-square-facebook,
+.fa-twitter,
+.fa-youtube,
+.fa-instagram {
+    color: grey;
+}
+
+.fa-twitter,
+.fa-youtube,
+.fa-instagram {
+    margin-left: 10px;
+}
+
+#original {
+    /* border: 1px solid black; */
+    height: 60px;
+    width: 100%;
+    display: flex;
+    margin-top: 15px;
+}
+
+.accreddation-pic {
+    width: 50px;
+}
+
+.accreddation-text {
+    margin-left: 5px;
+    margin-top: 0px;
+}
+
+#popular-search {
+    /* border: 1px solid black; */
+    width: 80%;
+    margin: auto;
+}

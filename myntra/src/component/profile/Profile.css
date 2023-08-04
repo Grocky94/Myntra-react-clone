@@ -1,0 +1,123 @@
+
+#Profile-screen {
+    width: 70%;
+    /* border: 1px solid black; */
+    margin: auto;
+    margin-top: 12%;
+}
+
+
+#profile-heading {
+    height: 40px;
+    width: 100%;
+    border-bottom: 1px solid rgb(176, 173, 173);
+    margin-top: 4%;
+
+}
+
+#profile-heading>p:nth-child(1) {
+    margin-top: 4%;
+}
+
+#profile-heading>p:nth-child(2) {
+    opacity: 0.7;
+
+}
+
+#profile-details-parent-div {
+    width: 100%;
+    /* border: 1px solid black; */
+    display: flex;
+}
+
+#profile-left-side {
+    width: 20%;
+    border-right: 1px solid rgb(176, 173, 173);
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+#profile-left-side>div>p {
+    margin-top: 4%;
+}
+
+#profile-left-side>div>h5 {
+    opacity: 0.7;
+}
+
+#profile-left-side>div {
+    padding-top: 10%;
+    padding-bottom: 10%;
+    width: 90%;
+    border-bottom: 1px solid rgb(176, 173, 173);
+    margin-left: 0px;
+    margin-right: auto;
+}
+
+#profile-left-side>div:nth-child(1) {
+    height: 80px;
+    width: 90%;
+    border-bottom: 1px solid rgb(176, 173, 173);
+}
+
+#profile-left-side>div:nth-child(5) {
+    border: none;
+}
+
+#profile-left-side>div:nth-child(1)>h5 {
+    margin-top: 5%;
+}
+
+#profile-left-side>div:nth-child(4)>p:nth-child(2) {
+    color: #20BD99;
+    font-weight: 700;
+}
+
+#profile-right-side {
+    /* height:500px; */
+    width: 78%;
+    margin: 1%;
+    border: 1px solid rgb(176, 173, 173);
+}
+
+#profile-right-side>div:nth-child(1) {
+    height: 100px;
+    width: 70%;
+    border-bottom: 1px solid rgb(176, 173, 173);
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+#profile-right-side>div:nth-child(2) {
+    height: 400px;
+    width: 70%;
+    /* border: 1px solid black; */
+    margin: auto;
+}
+
+.profile-detail-index {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2%;
+}
+
+.profile-detail-index>span:nth-child(1) {
+    margin-left: 5%;
+}
+
+.profile-detail-index>span:nth-child(2) {
+    margin-right: 20%;
+}
+
+#profile-edit-btn {
+    height: 50px;
+    width: 90%;
+    border: 1px solid #ff3f6c;
+    background-color: #ff3f6c;
+    color: white;
+    font-weight: 700;
+    margin-top: 5%;
+    margin-left: 2%;
+}

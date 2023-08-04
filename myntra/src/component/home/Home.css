@@ -1,0 +1,38 @@
+#home-parent {
+    /* border: 1px solid black; */
+    /* height: 400vh; */
+    width: 100%;
+    margin-top: 90px;
+    height:60vh;
+}
+
+#advertising {
+    border: 1px solid black;
+    height: 50vh;
+    width: 100%;
+    position: relative;
+}
+
+.showcase {
+    /* display: none; */
+    border: 1px solid black;
+    height: 50vh;
+    width: 100%;
+}
+
+.showcase>img {
+    height: 100%;
+    width: 100%;
+}
+.dot-parent-div{
+   text-align:center; 
+}
+.dot {
+    /* border: 1px solid black; */
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #b2b2b2;
+    cursor: pointer;
+}
