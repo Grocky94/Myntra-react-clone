@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "../navbar/Navbar.css";
 const NavBar = () => {
+  
     return (
         <div>
             <div id="navBar">

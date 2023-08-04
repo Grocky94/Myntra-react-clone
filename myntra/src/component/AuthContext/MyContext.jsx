@@ -21,7 +21,10 @@ const reducer = (state, action) => {
         case "ADDPRODUCT":
             return {
                 ...state,
-                products: [...state.products, action.payload]
+                products: {
+                    ...state,
+                    product: action.payload
+                }
             }
         default:
             return state;
@@ -30,6 +33,7 @@ const reducer = (state, action) => {
 }
 const MyContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialValue);
+
     const LOGIN = (userData) => {
         localStorage.setItem("currentuser", JSON.stringify(userData));
         if (userData) {
@@ -47,6 +51,7 @@ const MyContextProvider = ({ children }) => {
         })
     }
     const ADDPRODUCT = (productData) => {
+        localStorage.setItem("product", JSON.stringify(productData))
         dispatch({
             type: "ADDPRODUCT",
             payload: productData

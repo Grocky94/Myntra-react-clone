@@ -1,0 +1,46 @@
+#screen {
+    /* border: 1px solid black; */
+    width: 100%;
+}
+
+.product-showing-div-slide {
+    /* border: 1px solid black; */
+    height: 400px;
+    width: 18%;
+    margin-top: 2%;
+}
+
+.product-rating-within-product-img {
+    /* border: 1px solid black; */
+    height: 30px;
+    width: auto;
+    background-color: white;
+    position: absolute;
+    margin-top: 18%;
+    margin-left: 0.5%;
+    display: flex;
+    align-items: center;
+
+}
+
+.product-img {
+    /* border: 1px solid black; */
+    height: 310px;
+    width: 100%;
+
+}
+
+.wishList {
+    border: 1px solid pink;
+    background-color: white;
+    color: pink;
+    border-radius: 10px;
+    height: 25px;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    margin-top: 3px;
+    /* display: none; */
+    align-items: center;
+    padding-top: 1%;
+}

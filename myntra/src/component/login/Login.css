@@ -1,0 +1,71 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Assistant, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+#login-screen {
+    background-color: #fdeeeb;
+    height: 500px;
+    padding-top: 1%;
+    margin-top: 8%;
+}
+
+#logDiv {
+    height: 480px;
+    width: 25%;
+    /* border: 1px solid black; */
+    margin: auto;
+    margin-bottom: 10%;
+    background: #ffffff;
+}
+
+#flatOff {
+    /* border: 1px solid black;  */
+    width: 100%;
+}
+
+#form {
+    height: 350px;
+    width: 80%;
+    margin: auto;
+    margin-top: 5%;
+    /* border: 1px solid black; */
+}
+
+#form>p:nth-child(1) {
+    font-size: 18px;
+    text-align: center;
+    margin: 5% 0;
+}
+
+#credent>input {
+    height: 30px;
+    width: 80%;
+    margin-bottom: 2%;
+    margin-left: 10%;
+    margin-bottom: 5%;
+}
+
+#credent>p {
+    margin-left: 10%;
+    font-size: small;
+    word-spacing: 2px;
+    margin-top: 2%;
+}
+
+#credent>p>b>a {
+    text-decoration: none;
+    color: #fe5278;
+}
+
+#login-btn {
+    height: 30px;
+    width: 80%;
+    margin-left: 11%;
+    background-color: #fe5278;
+    border-color: #fe5278;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+}
