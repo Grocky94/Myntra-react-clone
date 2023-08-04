@@ -1,0 +1,84 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Assistant, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+#register-screen {
+    background-color: #fdeeeb;
+    height: 550px;
+    /* border: 1px solid #000; */
+    margin-top: 7%;
+    padding-top: 5%;
+}
+
+#register-logDiv {
+    height: 480px;
+    width: 25%;
+    /* border: 1px solid black; */
+    margin: auto;
+    background: #ffffff;
+}
+
+#register-flatOff {
+    /* border: 1px solid black;  */
+    width: 100%;
+}
+
+#register-form {
+    height: 350px;
+    width: 80%;
+    margin: auto;
+    margin-top: 5%;
+    /* border: 1px solid black; */
+}
+
+#register-form>p:nth-child(1) {
+    font-size: 18px;
+    text-align: center;
+    margin: 5% 0;
+}
+
+#register-credent>input {
+    height: 30px;
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 5%;
+}
+
+#register-select-div {
+    height: 5vh;
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 5%;
+    border: 1px solid #000;
+}
+
+#register-select-div>select {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+}
+
+#register-credent>p {
+    margin-left: 10%;
+    font-size: small;
+    word-spacing: 2px;
+    margin-top: 2%;
+}
+
+#register-credent>p>b {
+    color: #fe5278;
+}
+
+#register-btn {
+    height: 30px;
+    width: 80%;
+    margin-left: 11%;
+    background-color: #fe5278;
+    border-color: #fe5278;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+}

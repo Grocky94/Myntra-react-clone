@@ -3,7 +3,7 @@ import { createContext, useReducer } from 'react'
 
 export const MyContext = createContext();
 
-initialValue = { user: null, product: [] };
+const initialValue = { user: null, product: [] };
 
 const reducer = (state, action) => {
     switch (action.type) {
