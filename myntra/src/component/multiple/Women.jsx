@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import "./Multiple.css";
+import { useNavigate } from 'react-router-dom';
 
 const Women = () => {
     const [Products, setProducts] = useState([]);
+    const router = useNavigate();
+
+    const sendData = (product) => {
+        router(`/singleproduct/${product?.id}`);
+        console.log(product, "here from beauty")
+    };
 
     useEffect(() => {
         const items = JSON.parse(localStorage.getItem("product")) || [];
@@ -18,10 +25,10 @@ const Women = () => {
                     <img
                         src={Prop.Productimage} />
                 </div>
-                <div className="wishList"> ADD TO CART <i class="fa-regular fa-heart"></i></div>
+                <div className="wishList" onClick={() => sendData(Prop)}> ADD TO CART <i class="fa-regular fa-heart"></i></div>
                 <strong>{Prop.Productname}</strong>
                 <p>Sometime has to be there</p>
-                <strong>{Prop.Productprice}</strong>
+                <strong> ₹ {Prop.Productprice}</strong>
             </div>))}
         </div>)
 }

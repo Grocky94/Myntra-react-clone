@@ -16,7 +16,7 @@ const Register = () => {
             event.preventDefault()
             if (userData.name && userData.email && userData.password) {
                 const alluser = JSON.parse(localStorage.getItem("user")) || []
-                let obj = { name: userData.name, email: userData.email, password: userData.password, role: userData.role }
+                let obj = { name: userData.name, email: userData.email, password: userData.password, role: userData.role , cart: []}
                 alluser.push(obj);
                 localStorage.setItem("user", JSON.stringify(alluser));
                 alert("registration sucessfull")

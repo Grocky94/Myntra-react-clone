@@ -12,6 +12,7 @@ import Women from "./component/multiple/Women";
 import Kids from "./component/multiple/Kids";
 import HomenKitchen from "./component/multiple/HomenKitchen";
 import Beauty from "./component/multiple/Beauty";
+import Singleproduct from "./component/singleproduct/Singleproduct";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route exact path="/kids" element={<Kids />} />
         <Route exact path="/homenkitchen" element={<HomenKitchen />} />
         <Route exact path="/beauty" element={<Beauty />} />
+        <Route exact path="/singleproduct/:id" element={<Singleproduct />} />
       </Routes>
       <Footer />
     </div>
