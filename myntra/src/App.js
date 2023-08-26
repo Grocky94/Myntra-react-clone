@@ -13,8 +13,12 @@ import Kids from "./component/multiple/Kids";
 import HomenKitchen from "./component/multiple/HomenKitchen";
 import Beauty from "./component/multiple/Beauty";
 import Singleproduct from "./component/singleproduct/Singleproduct";
+import { useContext } from "react";
+import { MyContext } from "./component/AuthContext/MyContext";
 
 function App() {
+  const { state } = useContext(MyContext)
+  console.log(state?.user, "-user")
   return (
     <div>
       <Navbar />

@@ -1,10 +1,37 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import "../navbar/Navbar.css";
 import { useNavigate } from 'react-router-dom';
 import { MyContext } from "./../AuthContext/MyContext"
+import { useState } from 'react';
+import { toast } from 'react-hot-toast';
 const NavBar = () => {
+    const [userData, setUserData] = useState()
     const router = useNavigate()
-    const { state, LOGOUT } = useContext(MyContext)
+    const { state, dispatch } = useContext(MyContext)
+
+
+    const logout = () => {
+        localStorage.removeItem("token");
+        dispatch({
+            type: "LOGOUT"
+        })
+        toast.success("logout succesfully")
+    }
+
+    useEffect(() => {
+        // const currentUser = JSON.parse(localStorage.getItem("token"))
+        try {
+            if (state?.user) {
+                setUserData(state?.user)
+
+            } else {
+                setUserData({})
+            }
+        } catch (error) {
+            toast.error({ message: error.response.data.message })
+        }
+    }, [state])
+
     return (
         <div>
             <div id="navBar">
@@ -23,14 +50,14 @@ const NavBar = () => {
                 </div>
                 <div id="rightInnerDiv">
                     <div id="rightInput">
-                        <div><i class="fa-solid fa-magnifying-glass"></i><input
+                        <div><i className="fa-solid fa-magnifying-glass"></i><input
                             placeholder="Search for product, brands and more" /></div>
                     </div>
                     <div id="rightIcon">
                         {state?.user ? <div className="icon" onClick={() => router("/profile")}>
                             <i className="fa-regular fa-user"></i>
                             <p>{state?.user?.name}</p>
-                        </div> : ""}
+                        </div> : null}
                         <div className="icon">
                             <i className="fa-solid fa-bag-shopping"></i>
                             <p>Bag</p>
@@ -42,7 +69,7 @@ const NavBar = () => {
                         </div>
                         <div className="icon">
                             {/* <i className="fa-regular fa-heart"></i> */}
-                            {state?.user ? <p onClick={() => { LOGOUT(); router('/'); }}>Logout</p> : ""}
+                            {state?.user ? <p onClick={() => { logout(); router('/'); }}>Logout</p> : null}
                         </div>
                     </div>
                 </div>

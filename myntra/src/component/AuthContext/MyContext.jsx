@@ -1,9 +1,10 @@
-
-import { createContext, useReducer } from 'react'
+import React from "react"
+import axios from 'axios';
+import { createContext, useEffect, useReducer } from 'react'
 
 export const MyContext = createContext();
 
-const initialValue = { user: null, product: [] };
+const initialValue = {user: null};
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -17,15 +18,6 @@ const reducer = (state, action) => {
                 ...state,
                 user: null
             }
-
-        case "ADDPRODUCT":
-            return {
-                ...state,
-                products: {
-                    ...state,
-                    product: action.payload
-                }
-            }
         default:
             return state;
     }
@@ -33,32 +25,26 @@ const reducer = (state, action) => {
 }
 const MyContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialValue);
-
-    const LOGIN = (userData) => {
-        localStorage.setItem("currentuser", JSON.stringify(userData));
-        if (userData) {
-            dispatch({
-                type: "LOGIN",
-                payload: userData,
-            })
-
+    useEffect(() => {
+        async function currentUser() {
+            const token = JSON.parse(localStorage.getItem("token"))
+            const response = await axios.post("http://localhost:4000/get-current-user", { token })
+            if (response.data.success) {
+                dispatch({
+                    type: "LOGIN",
+                    payload: response.data.user
+                })
+            } else {
+                dispatch({
+                    type: "LOGOUT"
+                })
+            }
         }
-    }
-    const LOGOUT = () => {
-        localStorage.removeItem("currentuser");
-        dispatch({
-            type: "LOGOUT"
-        })
-    }
-    const ADDPRODUCT = (productData) => {
-        localStorage.setItem("product", JSON.stringify(productData))
-        dispatch({
-            type: "ADDPRODUCT",
-            payload: productData
-        })
-    }
+        currentUser()
+    }, [])
+
     return (
-        <MyContext.Provider value={{ state, LOGIN, LOGOUT, ADDPRODUCT }}>
+        <MyContext.Provider value={{ state, dispatch }}>
             {children}
         </MyContext.Provider>
     )

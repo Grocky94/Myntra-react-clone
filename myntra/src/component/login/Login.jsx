@@ -1,34 +1,44 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import "./../login/Login.css";
 import { MyContext } from "./../AuthContext/MyContext";
+import { NavLink, useNavigate } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
+import axios from 'axios';
 const Login = () => {
     const [userData, setUserData] = useState({ email: "", password: "" });
-    const { LOGIN } = useContext(MyContext);
+    const { state, dispatch } = useContext(MyContext);
+    const router = useNavigate();
+
     const handleChange = (event) => {
         setUserData({ ...userData, [event.target.name]: event.target.value });
     }
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         if (userData.email && userData.password) {
-            const alluser = JSON.parse(localStorage.getItem("user"));
-            let flag = false;
-            for (let i = 0; i < alluser.length; i++) {
-                if (alluser[i].email == userData.email && alluser[i].password == userData.password) {
+            const response = await axios.post("http://localhost:4000/login", { userData })
 
-                    LOGIN(alluser[i]);
-                    alert("login successfull");
-                    setUserData({ email: "", password: "" })
-                    flag = true;
-                    break;
-                } if (flag == false) {
-                    alert("incorrect details");
-                }
+            if (response.data.success) {
+                dispatch({
+                    type: "LOGIN",
+                    payload: response.data.user
+                })
+                localStorage.setItem("token", JSON.stringify(response.data.token))
+                setUserData({ email: "", password: "" })
+                router("/");
+                toast.success(response.data.message);
+            } else {
+                toast.error(response.data.message)
             }
         } else {
-            alert("please fill all areas");
-            setUserData({})
+            toast.error("All fields are mandatory")
         }
     }
+
+    useEffect(() => {
+        if (state?.user?.name) {
+            router('/')
+        }
+    }, [state])
 
     return (
         <div id="login-screen">
@@ -42,7 +52,7 @@ const Login = () => {
                             <input type="email" placeholder="Email Id here" name="email" value={userData.email} onChange={handleChange} /><br />
                             <input type="password" placeholder="password" name="password" value={userData.password} onChange={handleChange} /><br />
                             <button id="login-btn">Login</button>
-                            <p>if you haven't create account <b><a href="day-21-myntra-register.html">Register here</a></b></p>
+                            <p>if you haven't create account <b><NavLink to={"/register"}>Register here</NavLink></b></p>
                         </div>
                     </form>
                 </div>

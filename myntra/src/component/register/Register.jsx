@@ -1,32 +1,42 @@
 import React, { useState } from 'react'
 import "./../register/Register.css"
+import axios from "axios"
+import { toast } from 'react-hot-toast'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 const Register = () => {
-    const [userData, setUserData] = useState({ name: "", email: "", password: "", role: "" })
+    const [userData, setUserData] = useState({ name: "", email: "", password: "", confirmPassword: "", role: "" })
     // console.log(userData)
+
+    const router = useNavigate()
+
     const handlechange = (event) => {
         setUserData({ ...userData, [event.target.name]: event.target.value })
     }
 
 
     const handleSelector = (event) => {
-        setUserData({ ...userData, ["role"]: event.target.value })
+        setUserData({ ...userData, "role": event.target.value })
     }
-        const handleSubmit = (event) => {
-            event.preventDefault()
-            if (userData.name && userData.email && userData.password) {
-                const alluser = JSON.parse(localStorage.getItem("user")) || []
-                let obj = { name: userData.name, email: userData.email, password: userData.password, role: userData.role , cart: []}
-                alluser.push(obj);
-                localStorage.setItem("user", JSON.stringify(alluser));
-                alert("registration sucessfull")
-                setUserData({ name: "", email: "", password: "", role: "" });
-
+    const handleSubmit = async (event) => {
+        event.preventDefault()
+        if (userData.name && userData.email && userData.password) {
+            const response = await axios.post("http://localhost:4000/register", { userData });
+            if (userData.password === userData.confirmPassword) {
+                if (response.data.success) {
+                    setUserData({ name: "", email: "", password: "", confirmPassword: "", role: "Buyer" })
+                    router('/login')
+                    toast.success(response.data.message)
+                } else {
+                    toast.error(response.data.message)
+                }
             } else {
-                alert("please fill all details")
-                setUserData({})
+                toast.error("Password and Confirm Password not Matched.")
             }
+        } else {
+            toast.error("All fields are mandtory.")
         }
+    }
     return (
         <div id='register-screen'>
             <div id="register-logDiv">
@@ -39,15 +49,16 @@ const Register = () => {
                             <input type="text" name="name" placeholder="Name" value={userData.name} onChange={handlechange} /><br />
                             <input type="email" name="email" placeholder="Email Id here" value={userData.email} onChange={handlechange} /><br />
                             <input type="password" name="password" placeholder="password" value={userData.password} onChange={handlechange} /><br />
+                            <input type="password" name="confirmPassword" placeholder="confirmPassword" value={userData.confirmPassword} onChange={handlechange} /><br />
                             <div id="register-select-div">
                                 <select value={userData.role} onChange={handleSelector}>
                                     <option >Role</option>
-                                    <option value="seller">Seller</option>
-                                    <option value="buyer">Buyer</option>
+                                    <option value="Seller">Seller</option>
+                                    <option value="Buyer">Buyer</option>
                                 </select>
                             </div>
                             <button id="register-btn">SignUp</button>
-                            <p>if you already have an account <b>Login here </b></p>
+                            <p>if you already have an account <b><NavLink to={"/login"} id="backToLogin">Login here</NavLink></b></p>
                         </div>
                     </form>
                 </div>

@@ -68,8 +68,9 @@
     margin-top: 2%;
 }
 
-#register-credent>p>b {
+#backToLogin{
     color: #fe5278;
+    text-decoration: none;
 }
 
 #register-btn {
